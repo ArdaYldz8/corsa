@@ -15,6 +15,7 @@ from .strategy import RSIEMAStrategy, Signal
 from .notifications import TelegramNotifier
 from .telegram_controller import TelegramController
 from .database import TradeDatabase
+from .health import run_health_server, set_bot_instance
 
 
 class TradingBot:
@@ -78,6 +79,13 @@ class TradingBot:
         schedule.every().day.at(self.daily_report_time).do(self.send_daily_report)
         
         self.logger.info(f"Bot started - Checking every {self.check_interval} minutes")
+        
+        # Start health server for cloud hosting (Render/Railway)
+        import os
+        port = int(os.environ.get('PORT', 8080))
+        run_health_server(port)
+        set_bot_instance(self)
+        
         print(f"\n{'='*50}")
         print(f"🤖 Trading Bot Started")
         print(f"{'='*50}")
