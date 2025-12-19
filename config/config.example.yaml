@@ -1,0 +1,68 @@
+# Exchange Configuration
+exchange:
+  # Binance TR API credentials
+  # Get from: https://www.trbinance.com/account/api
+  api_key: "YOUR_BINANCE_API_KEY"
+  api_secret: "YOUR_BINANCE_API_SECRET"
+  
+  # Use Binance TR (for TRY pairs)
+  use_binance_tr: true
+
+# Trading Configuration
+trading:
+  # Trading pair (use TRY pairs for Binance TR)
+  symbol: "BTC/TRY"
+  
+  # Amount per trade in TRY
+  trade_amount: 100
+  
+  # Timeframe for analysis
+  timeframe: "1h"
+  
+  # Paper trading mode (no real trades)
+  paper_mode: true
+  
+  # Maximum position (TRY)
+  max_position: 500
+  
+  # Stop loss percentage
+  stop_loss_pct: 5.0
+  
+  # Take profit percentage
+  take_profit_pct: 10.0
+
+# Strategy Configuration
+strategy:
+  # RSI settings
+  rsi_period: 14
+  rsi_oversold: 30
+  rsi_overbought: 70
+  
+  # EMA settings
+  ema_period: 50
+  
+  # Minimum bars for analysis
+  min_bars: 100
+
+# Telegram Notifications
+telegram:
+  enabled: false
+  
+  # Get bot token from @BotFather
+  bot_token: "YOUR_TELEGRAM_BOT_TOKEN"
+  
+  # Get chat ID from @userinfobot
+  chat_id: "YOUR_CHAT_ID"
+
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/trading.log"
+
+# Scheduler
+scheduler:
+  # Check interval in minutes
+  check_interval: 15
+  
+  # Daily report time (24h format)
+  daily_report_time: "20:00"

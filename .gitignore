@@ -1,0 +1,11 @@
+# Dependency list
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+*.log
+data/
+logs/
+config/config.yaml
+.vscode/
+.idea/
